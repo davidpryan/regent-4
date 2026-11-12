@@ -1,0 +1,27 @@
+# REGENT-4's build settings (fm1-base tools/build.py)
+name = "REGENT-4"
+id_prefix = "FM-1_24"          # dev FM-1_2400, releases FM-1_24XXYYZZ
+usb_manufacturer = "REGENT-4"
+usb_product = "REGENT-4 FM-1"
+words = "words.tsv"
+font_full = ["M", "L"]        # lower case in the large fonts (chord names: Am7, ii)
+o2 = []
+ble = true
+ble_stack = "own"
+ble_pairing = true
+ble_central = true
+usb_host = false
+usb_audio_in = false
+usb_audio_out = false
+midi_stamp = false
+emu = ["midi"]
+tagline = "play chords; four parts follow them"
+repo = "https://github.com/davidpryan/regent-4"
+licence = "MPL-2.0"
+credits = "Built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). After the Conductive Labs NDLR and chord-track harmony engines. Fonts: Barlow (SIL OFL 1.1)."
+author = "David Ryan"
+description = "REGENT-4 conducts by harmony. White keys play the degrees of the key as chords, black keys colour them (7th, sus2, sus4, add9, 6th, major/minor flip, flat five). A pad voice-leads through the changes, a bass plays one of eight figures from the root, two motifs arpeggiate the chord at their own rates, and a beat runs under it. Record a progression by playing it, let it play back, change key on the fly, and send every part to its own MIDI channel over USB and Bluetooth."
+tags = ["sequencer", "chords", "synth", "midi"]
+install = "https://davidpryan.github.io/regent-4/install/"
+site = "https://davidpryan.github.io/regent-4/"
+screenshot = "app/docs/img/screen-conductor.png"

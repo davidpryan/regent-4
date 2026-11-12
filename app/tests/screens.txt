@@ -1,0 +1,20 @@
+# REGENT-4's manual screenshots: ./build.sh --shots
+wait 600
+turn K1 0
+tap PLAY
+turn ALGO 3
+tap LFO
+wait 2500
+shot screen-conductor.png
+tap EDIT
+wait 200
+shot screen-progression.png
+tap HOME
+key b0 down
+tapkey w1
+key b0 up
+wait 400
+shot screen-chord.png
+tap GLO
+wait 100
+shot screen-setup.png

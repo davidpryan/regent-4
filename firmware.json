@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "regent-4",
+  "name": "REGENT-4",
+  "author": "David Ryan",
+  "license": "MPL-2.0",
+  "tagline": "play chords; four parts follow them",
+  "description": "REGENT-4 conducts by harmony. White keys play the degrees of the key as chords, black keys colour them (7th, sus2, sus4, add9, 6th, major/minor flip, flat five). A pad voice-leads through the changes, a bass plays one of eight figures from the root, two motifs arpeggiate the chord at their own rates, and a beat runs under it. Record a progression by playing it, let it play back, change key on the fly, and send every part to its own MIDI channel over USB and Bluetooth.",
+  "tags": ["sequencer", "chords", "synth", "midi"],
+  "install": "https://davidpryan.github.io/regent-4/install/",
+  "site": "https://davidpryan.github.io/regent-4/",
+  "source": "https://github.com/davidpryan/regent-4",
+  "screenshot": "app/docs/img/screen-conductor.png",
+  "hardware": {
+    "models": ["FM-1"],
+    "flash": ["856014", "B36014"],
+    "features": ["bluetooth-midi", "bluetooth-midi-devices", "velocity", "pressure", "screen-reader"]
+  },
+  "credits": "Built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). After the Conductive Labs NDLR and chord-track harmony engines. Fonts: Barlow (SIL OFL 1.1)."
+}

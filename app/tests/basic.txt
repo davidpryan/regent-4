@@ -1,0 +1,76 @@
+# REGENT-4 in the host simulator: ./build.sh --host
+wait 600
+expect page 0
+expect progn 4
+expect follow 1
+# stopped: white key 6 is vi (A minor in C major): A, a minor third
+tapkey w5
+wait 30
+expect deg 5
+expect root 57
+expect third 3
+expect padn 3
+# a black key held with the white: the 7th
+key b0 down
+tapkey w4
+key b0 up
+wait 30
+expect deg 4
+expect mods 1
+expect nnotes 4
+# FLIP (black 6) makes the V minor
+key b5 down
+tapkey w4
+key b5 up
+wait 30
+expect third 3
+# the progression plays: slot 0 is I, then vi7 four beats (2.2 s at 110) later
+tap PLAY
+wait 300
+expect playing 1
+expect deg 0
+wait 2200
+expect slot 1
+expect deg 5
+# the bass on channel 2, the pad on channel 1
+expect_out USB 91 2D 70
+# REC: chords played while playing become the progression
+tap REC
+wait 30
+expect progn 0
+tapkey w3
+wait 2090
+tapkey w4
+wait 1100
+tap REC
+wait 30
+expect rec 0
+expect progn 2
+expect proglen0 4
+expect prog1 4
+expect follow 1
+# a part muted from black key 9 (the pad)
+tapkey b7
+wait 30
+expect muted 1
+tap PLAY
+wait 60
+expect playing 0
+# tap tempo on white key 16: 500 ms apart is 120 BPM
+key w15 down
+wait 20
+key w15 up
+wait 480
+key w15 down
+wait 20
+key w15 up
+wait 480
+key w15 down
+wait 20
+key w15 up
+wait 30
+expect bpm_near120 1
+press SEQ
+wait 1200
+expect card 9
+release SEQ
