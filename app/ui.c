@@ -52,6 +52,10 @@ static const char *const CARD_TEXT[NB] = {
 #endif
 };
 
+static const char *const HINTS[NB] = {
+    [B_SEL] = "PRESETS: SCALE",
+};
+
 static void dirty(void) { U.dirty = 1; }
 static void settings_save(void) { plat_store_save(OBJ_SETTINGS, &set, sizeof set); }
 int regent_ble_off(void) { return set.ble_off; }
@@ -435,8 +439,17 @@ static void draw_conductor(void)
             text_c(x + 7, y + 3, &FONT_T, n, now ? K_BG : K_FG);
         }
     }
-    cv_text(4, 184, &FONT_T, H.rec ? "RECORDING THE PROGRESSION" : H.follow ? "PROGRESSION PLAYS (SEQ)" : "YOU CONDUCT: WHITE KEYS",
-            H.rec ? K_REC : K_FAINT);
+    if (H.rec) {
+        cv_text(4, 184, &FONT_T, "RECORDING THE PROGRESSION", K_REC);
+    } else {                                            /* the knobs' names for the part shown */
+        char kn[48] = "";
+        for (i = 0; i < 4u; i++) {
+            s_cat(kn, i ? "   " : "");
+            s_cat(kn, KLAB[U.part][i]);
+        }
+        cv_text(4, 184, &FONT_T, kn, K_DIM);
+        text_r(236, 184, &FONT_T, H.follow ? "SEQ: PROGRESSION" : "", K_FAINT);
+    }
 }
 
 static void draw_prog(void)
@@ -494,6 +507,13 @@ static void draw(void)
         kit_knobs("BEATS", "", "", "", ACCENT);
     } else {
         kit_knobs("VALUE", "", "", "", ACCENT);
+    }
+    if (U.held_white >= 0 && !kit_hint(HINTS, ACCENT)) {   /* a chord key held: what the black keys add */
+        cv_begin(240, 18, ACCENT);
+        cv_text(4, 2, &FONT_T, "BLACK: 7  SUS2  SUS4  ADD9  6  FLIP  FLAT5   8-11: MUTES", K_BG);
+        cv_blit(0, 222);
+    } else {
+        kit_hint(HINTS, ACCENT);
     }
 }
 
