@@ -96,3 +96,5 @@ from the simulator. Nothing has been run on a real FM-1 yet; CPU load of the syn
 ## Licence
 
 MPL-2.0, as fm1-base. After the Conductive Labs NDLR and the chord tracks of Logic and Cubase.
+
+You can also try Regent 4 in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
